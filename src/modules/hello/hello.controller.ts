@@ -1,12 +1,12 @@
 import { Controller, UseGuards, Get } from '@nestjs/common';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { HelloService } from './hello.service';
 import { ResType } from 'src/type';
 import { RolesGuard } from 'src/common/guards/roles.guard';
 import { Roles } from 'src/common/decorators/roles.decorator';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 @ApiBearerAuth()
-@ApiTags('Hello')
+@ApiTags('TestHello')
 @UseGuards(RolesGuard)
 @Controller('hello')
 export class HelloController {

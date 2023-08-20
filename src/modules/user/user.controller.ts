@@ -14,6 +14,15 @@ import { ApiTags } from '@nestjs/swagger';
 export class UserController {
   constructor(private userService: UserService) {}
 
+  @Get('/getAllUsers')
+  async getAllUsers(): Promise<ResType> {
+    return {
+      code: 0,
+      msg: '请求成功',
+      data: await this.userService.getAllUsers(),
+    };
+  }
+
   @Get('getUserById/:id')
   getUserById(@Param() { id }): ResType {
     id = parseInt(id);

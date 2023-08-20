@@ -1,11 +1,12 @@
 import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { LoggerMiddleWare } from './common/middleware/logger.middleware';
 import { AuthModule, EmailModule, HelloModule, UserModule } from './modules';
-import { escrowMailerModule } from './escrow-modules';
+import { escrowMailerModule, escrowTypeOrmModule } from './escrow-modules';
 
 @Module({
   imports: [
     escrowMailerModule,
+    escrowTypeOrmModule,
     AuthModule,
     HelloModule,
     UserModule,

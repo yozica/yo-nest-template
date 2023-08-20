@@ -1,6 +1,7 @@
 import { MailerModule } from '@nestjs-modules/mailer';
 import { PugAdapter } from '@nestjs-modules/mailer/dist/adapters/pug.adapter';
 import { join } from 'path';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 export const escrowMailerModule = MailerModule.forRootAsync({
   useFactory: () => ({
@@ -17,4 +18,16 @@ export const escrowMailerModule = MailerModule.forRootAsync({
       },
     },
   }),
+});
+
+export const escrowTypeOrmModule = TypeOrmModule.forRoot({
+  type: 'mysql',
+  host: 'localhost',
+  port: 3306,
+  username: 'root',
+  password: '2580',
+  database: 'yoSite',
+  entities: [],
+  // synchronize: true,
+  autoLoadEntities: true,
 });
